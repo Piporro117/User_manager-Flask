@@ -1,0 +1,46 @@
+{% extends 'base_usuario.html' %}
+
+
+{% block titulo %}
+    PAGINA PRINCIPAL USUARIO
+{% endblock %}
+
+
+{% block contenido %}
+
+    <!--TITULO EN EL CENTRO-->
+    <div class="container">
+        <h1 class="text-center my-5">USUARIO SISTEMA DE MANEJO</h1>
+    </div>
+
+    <!--BOTONES-->
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mx-auto">
+                <div class="card m-3">
+                    <div class="card-body bg-success">
+                        <h3>USUARIO LOGIN</h3>
+                        <a href="{{ url_for('usuario.login_usuario') }}" class="nav-link text-white">LOGIN</a>
+                    </div>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-body bg-info">
+                        <h3>USUARIO REGISTRO</h3>
+                        <a href="{{ url_for('usuario.registro_usuario') }}" class="nav-link text-white">REGISTRO</a>
+                    </div>
+                </div>
+
+                <div class="card m-3">
+                    <div class="card-body bg-danger">
+                        <h3>ADMIN LOGIN</h3>
+                        <a href="{{url_for('user_manager.index')}}" class="nav-link text-white">LOGIN ADMIN</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

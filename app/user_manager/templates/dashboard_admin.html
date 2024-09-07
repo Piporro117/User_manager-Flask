@@ -1,0 +1,68 @@
+{% extends 'base_admin.html' %}
+
+{% block titulo %} DASHBOARD ADMIN {% endblock %}
+
+
+{% block contenido %}
+<div class="d-flex justify-content-center">
+    <h3>BIENVENIDO {{nombre}}</h3>
+</div>
+
+<br>
+
+<dic class="row d-flex justify-content-center">
+    <div class="col-xl-3 col-lg-3 col-md-3 my-2 col-sm-12">
+        <a href="" class="btn btn-info w-full">DASHBOARD</a>
+    </div>
+
+    <div class="col-xl-3 col-lg-3 col-md-3 my-2 col-sm-12">
+        <a href="{{url_for('user_manager.cambiar_contrasena_admin')}}" class="btn btn-info w-full">Cambiar contraseña ADMIN</a>
+    </div>
+
+
+    <div class="col-xl-3 col-lg-3 col-md-3 my-2 col-sm-12">
+        <a href="{{url_for('user_manager.ver_usuarios')}}" class="btn btn-info w-full">Ver usuarios</a>
+    </div>
+
+    <div class="col-xl-3 col-lg-3 col-md-3 my-2 col-sm-12">
+        <a href="{{url_for('user_manager.logout_admin')}}" class="btn btn-info w-full">SALIR</a>
+    </div>
+
+
+</dic>
+
+<br>
+
+<!--MOSTRAR INFORMACION A ADMIN CON CARTAS-->
+<div class="container">
+    <div class="row">
+
+        <!--total usuarios-->
+        <div class="col-xl-6 my-2 col-lg-6 col-sm-12">
+            <div class="bg-success d-flex p-3 justify-content-between align-items-center">
+                <h4>TOTAL USUARIOS</h4>
+                <h5>{{total_usuarios}}</h5>
+            </div>
+        </div>
+
+        <!--Usuarios aprobados-->
+        <div class="col-xl-6 my-2 col-lg-6 col-sm-12">
+            <div class="bg-warning d-flex p-3 justify-content-between align-items-center">
+                <h4>USUARIOS APROBADOS</h4>
+                <h5>{{usuarios_aprobados}}</h5>
+            </div>
+        </div>
+
+        <!--Usuarios no aprobados-->
+        <div class="col-xl-6 my-2 col-lg-6 col-sm-12">
+            <div class="bg-danger d-flex p-3 justify-content-between align-items-center">
+                <h4>USUARIOS NO APROBADOS</h4>
+                <h5>{{usuarios_no_aprobados}}</h5>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base_usuario.html' %}
+
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block titulo %}
+
+CAMBIO CONTRASEÑA
+
+{% endblock %}
+
+{% block contenido %}
+
+<div class="container">
+    <h3>CAMBIO DE CONTRASEÑA</h3>
+
+    {{ formulario.hidden_tag() }}
+    {{ wtf.quick_form(formulario) }}
+
+    
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'base_admin.html' %}
+
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block titulo %}
+    VER TODOS LOS USUARIOS
+{% endblock %}
+
+{% block contenido %}
+
+<div class="d-flex justify-content-center">
+    <h3>Lista de usuarios</h3>
+</div>
+
+
+<!--barra de busqueda-->
+{{barra.hidden_tag()}}
+{{wtf.quick_form(barra)}}
+
+
+
+<!--TABLA PARA MOSTRAR LA INFORMACIONAS DE LOS USUARIOS-->
+<div class="container">
+    <div class="my-2">
+        <div class="table-respoonsive">
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <!--columnas-->
+                        <th>ID</th>
+                        <th>R.P.E</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Correo</th>
+                        <th>Fecha creación</th>
+                        <th>Rol</th>
+                        <th>STATUS</th>
+                    </tr>
+                </thead>
+
+                <!--contenido de la tabla-->
+                <tbody>
+
+                    {% for usuario in usuarios %}
+
+                    <tr>
+                        <td>{{usuario.id}}</td>
+                        <td>{{usuario.usuario_rpe}}</td>
+                        <td>{{usuario.usuario_nombres}}</td>
+                        <td>{{usuario.usuario_apellidos}}</td>
+                        <td>{{usuario.usuario_email}}</td>
+                        <td>{{usuario.usuario_creacion}}</td>
+                        <td>{{usuario.rol}}</td>
+                        <td>
+                            {% if usuario.status == 0 %}
+                               <a href="{{ url_for('user_manager.aprobar_usuario', id=usuario.id) }}">
+                                <button class="btn btn-warning">¿APROBAR?</button>
+                               </a>
+                            {% else %}
+                                APROBADO
+                            {% endif %}
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+                </tbody>
+                
+
+            </table>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

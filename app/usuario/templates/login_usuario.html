@@ -1,0 +1,26 @@
+{% extends 'base_usuario.html' %}
+
+<!--Importacion de la libreria para la creacion de formularios-->
+{% import 'bootstrap/wtf.html' as wtf %}
+
+
+{% block titulo %}
+    LOGIN USUARIO
+{% endblock %}
+
+
+{% block contenido %}
+
+    <div class="container">
+        <br>
+        <h3>INCIO DE SESION </h3>
+
+        {{ formulario.hidden_tag() }}
+        {{ wtf.quick_form(formulario) }}
+
+        <br>
+        <h4>¿No tienes cuenta?  <a href="{{url_for('usuario.registro_usuario')}}">Registrate aqui </a> </h4>
+
+    </div>
+    
+{% endblock %}
